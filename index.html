@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Crypto Provocation Challenge 2025/26 💸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="La sfida crypto più folle del web: invia quello che vuoi a questo wallet!">
+  <meta name="description" content="The craziest crypto challenge on the web: send whatever you want to this wallet!">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -232,50 +232,50 @@
 <body>
   <h1>Crypto Provocation Challenge 2025/26 💸</h1>
   <div class="subtitle">
-    Nessuna promessa. Nessun progetto. Solo follia.<br>
-    <span style="color:#ff6767;">Hai il coraggio di mandare crypto a uno sconosciuto?</span>
+    No promises. No project. Just pure madness.<br>
+    <span style="color:#ff6767;">Do you dare to send crypto to a total stranger?</span>
   </div>
 
   <div class="wallet-section">
-    <div class="wallet-label">Indirizzo pubblico Ethereum:</div>
+    <div class="wallet-label">Public Ethereum address:</div>
     <div class="wallet-address" id="walletAddress">0x2105533bEFCc09CbC96B5986D781aa6A8b5e3b0f</div>
-    <button class="copy-btn" onclick="copyAddress()">Copia indirizzo</button>
+    <button class="copy-btn" onclick="copyAddress()">Copy address</button>
     <div class="cta">
-      Invia <b>ETH</b> o <b>token ERC-20</b><br>  
-      e sarai celebrato qui sotto!<br>  
-      <span style="color:#00ffd0;font-size:1.15rem;">Prova a entrare nell’albo dei Folli della Crypto!</span>
+      Send <b>ETH</b> or <b>ERC-20 tokens</b><br>  
+      and you'll be celebrated below!<br>  
+      <span style="color:#00ffd0;font-size:1.15rem;">Try to join the Hall of Crypto Madness!</span>
     </div>
-    <div class="counter" id="counter">Totale ricevuto: <span id="totalEth">—</span> ETH</div>
+    <div class="counter" id="counter">Total received: <span id="totalEth">—</span> ETH</div>
   </div>
 
   <div class="nickname-section">
-    <div class="nickname-label">Se vuoi apparire nella classifica con un nickname,<br>inseriscilo qui (max 15 caratteri):</div>
-    <input id="nicknameInput" maxlength="15" class="nickname-input" placeholder="Il tuo nickname..."/>
-    <button class="nickname-save" onclick="saveNickname()">Salva</button>
+    <div class="nickname-label">If you want to appear on the leaderboard with a nickname,<br>enter it here (max 15 characters):</div>
+    <input id="nicknameInput" maxlength="15" class="nickname-input" placeholder="Your nickname..."/>
+    <button class="nickname-save" onclick="saveNickname()">Save</button>
     <div id="nicknameSavedMsg" style="color:#00ffd0;margin-top:7px;font-size:0.97rem;"></div>
   </div>
 
   <div class="leaderboard">
-    <div class="leader-title">🏆 TOP 3 Donatori</div>
+    <div class="leader-title">🏆 TOP 3 Donors</div>
     <ol id="leaderboardList">
-      <li>— Nessuna donazione ancora!</li>
+      <li>— No donations yet!</li>
     </ol>
   </div>
 
   <div class="tx-section">
-    <div class="tx-title">Ultimi eroi che hanno donato 💥</div>
+    <div class="tx-title">Latest crypto heroes 💥</div>
     <ul class="tx-list" id="txList">
-      <li class="tx-item">— Nessuna transazione ancora! Sarai tu il primo?</li>
+      <li class="tx-item">— No transactions yet! Will you be the first?</li>
     </ul>
   </div>
 
   <div class="disclaimer">
-    🚨 Non inviare nulla che non sei disposto a perdere per sempre.  
-    <br>Wallet pubblico per esperimento sociale: <b>nessuna restituzione</b>, nessun rimborso.
+    🚨 Do not send anything you are not willing to lose forever.  
+    <br>This wallet is for a social experiment: <b>no refunds</b>, no returns.
   </div>
   
   <script>
-    const WALLET_ADDRESS = "0x2105533bEFCc09CbC96B5986D781aa6A8b5e3b0f"; // <- sostituisci col tuo vero indirizzo!
+    const WALLET_ADDRESS = "0x2105533bEFCc09CbC96B5986D781aa6A8b5e3b0f"; // <- replace with your real address!
     const NICKNAME_KEY = 'crypto-provocation-nicknames';
 
     document.getElementById("walletAddress").innerText = WALLET_ADDRESS;
@@ -283,8 +283,8 @@
     function copyAddress() {
       navigator.clipboard.writeText(WALLET_ADDRESS);
       const btn = document.querySelector('.copy-btn');
-      btn.innerText = "Copiato!";
-      setTimeout(()=>{btn.innerText = "Copia indirizzo";}, 1300);
+      btn.innerText = "Copied!";
+      setTimeout(()=>{btn.innerText = "Copy address";}, 1300);
     }
 
     // Nickname logic
@@ -292,19 +292,19 @@
       let nick = document.getElementById('nicknameInput').value.trim();
       if (nick.length > 0 && nick.length <= 15) {
         localStorage.setItem(NICKNAME_KEY, nick);
-        document.getElementById('nicknameSavedMsg').innerText = `Nickname salvato! Se doni, contattaci su X/Twitter per essere taggato nella classifica.`;
+        document.getElementById('nicknameSavedMsg').innerText = `Nickname saved! If you donate, contact us on X/Twitter to be tagged in the leaderboard.`;
       } else {
-        document.getElementById('nicknameSavedMsg').innerText = "Nickname non valido (max 15 caratteri)";
+        document.getElementById('nicknameSavedMsg').innerText = "Invalid nickname (max 15 characters)";
       }
     }
 
-    // --- Opzionale: Carica transazioni recenti da Etherscan ---
-    // Inserisci qui la tua API key Etherscan:
-    const ETHERSCAN_API_KEY = "InserisciQuiLaTuaAPIKEY";
+    // --- Optionally: Fetch recent transactions from Etherscan ---
+    // Enter your Etherscan API key here:
+    const ETHERSCAN_API_KEY = "YourAPIKEYHere";
 
-    // Nicknames custom per indirizzi (aggiorna manualmente qui):
+    // Custom nicknames for addresses (manually update here):
     const ADDRESS_NICKNAMES = {
-      // Esempio: "0x1234abcd...": "CryptoKing",
+      // Example: "0x1234abcd...": "CryptoKing",
     };
 
     async function loadTransactionsAndLeaderboard() {
@@ -313,11 +313,11 @@
         const r = await fetch(apiUrl);
         const data = await r.json();
         if (data.status === "1" && data.result.length > 0) {
-          // Filtra solo transazioni in ingresso
+          // Filter incoming transactions only
           const txs = data.result.filter(tx => tx.to && tx.to.toLowerCase() === WALLET_ADDRESS.toLowerCase() && tx.isError === "0" && tx.value !== "0");
           txs.sort((a, b) => b.blockNumber - a.blockNumber);
 
-          // --- Lista transazioni recenti ---
+          // --- Recent transaction list ---
           const ul = document.getElementById('txList');
           ul.innerHTML = '';
           let totalEth = 0;
@@ -328,7 +328,7 @@
             totalEth += parseFloat(eth);
             const li = document.createElement('li');
             li.className = "tx-item";
-            li.innerHTML = `<span style="color:#00ffd0;">${eth} ETH</span> da <b>${ADDRESS_NICKNAMES[from] ? ADDRESS_NICKNAMES[from] : short}</b> <span style="color:#bbb;">(${timeAgo(tx.timeStamp)})</span>`;
+            li.innerHTML = `<span style="color:#00ffd0;">${eth} ETH</span> from <b>${ADDRESS_NICKNAMES[from] ? ADDRESS_NICKNAMES[from] : short}</b> <span style="color:#bbb;">(${timeAgo(tx.timeStamp)})</span>`;
             ul.appendChild(li);
           });
           document.getElementById('totalEth').innerText = totalEth.toFixed(5);
@@ -350,7 +350,7 @@
           const el = document.getElementById('leaderboardList');
           el.innerHTML = '';
           if (top.length === 0) {
-            el.innerHTML = '<li>— Nessuna donazione ancora!</li>';
+            el.innerHTML = '<li>— No donations yet!</li>';
           } else {
             top.forEach(([from,amt], i)=>{
               const short = from.substring(0,6)+'…'+from.slice(-4);
@@ -362,27 +362,26 @@
             });
           }
         } else {
-          document.getElementById('txList').innerHTML = '<li class="tx-item">— Nessuna transazione ancora! Sarai tu il primo?</li>';
+          document.getElementById('txList').innerHTML = '<li class="tx-item">— No transactions yet! Will you be the first?</li>';
           document.getElementById('totalEth').innerText = "—";
-          document.getElementById('leaderboardList').innerHTML = '<li>— Nessuna donazione ancora!</li>';
+          document.getElementById('leaderboardList').innerHTML = '<li>— No donations yet!</li>';
         }
       } catch(e) {
-        document.getElementById('txList').innerHTML = '<li class="tx-item">Errore di connessione a Etherscan</li>';
+        document.getElementById('txList').innerHTML = '<li class="tx-item">Etherscan connection error</li>';
         document.getElementById('totalEth').innerText = "—";
-        document.getElementById('leaderboardList').innerHTML = '<li>Errore leaderboard!</li>';
+        document.getElementById('leaderboardList').innerHTML = '<li>Leaderboard error!</li>';
       }
     }
 
     function timeAgo(ts) {
       const now = Math.floor(Date.now()/1000);
       const sec = now - Number(ts);
-      if (sec < 90) return `${sec}s fa`;
-      if (sec < 90*60) return `${Math.floor(sec/60)}min fa`;
-      if (sec < 36*3600) return `${Math.floor(sec/3600)}h fa`;
-      return `${Math.floor(sec/86400)}g fa`;
+      if (sec < 90) return `${sec}s ago`;
+      if (sec < 90*60) return `${Math.floor(sec/60)}min ago`;
+      if (sec < 36*3600) return `${Math.floor(sec/3600)}h ago`;
+      return `${Math.floor(sec/86400)}d ago`;
     }
 
-    // Aggiorna ogni 25s
     setInterval(loadTransactionsAndLeaderboard, 25000);
     loadTransactionsAndLeaderboard();
   </script>
